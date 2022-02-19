@@ -6,6 +6,8 @@ from player import *
 from enemyIndex import *
 import copy
 
+f = 0
+
 def updatePlayer():
   variStats = copy.deepcopy(origStats)
 
