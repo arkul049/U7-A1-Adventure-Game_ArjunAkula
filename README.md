@@ -1,4 +1,4 @@
-# U7-A1-Adventure-Game_ArjunAkula
+# U7-A1-Adventure-Game_ArjunAkula\n
 CS_Adventure_Game_Project
 This is a project for my Computer Science class. It isn't based on any pre-existing media, but I hope you enjoy it upon completion!
 Note:
