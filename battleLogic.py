@@ -7,24 +7,29 @@ from enemyIndex import *
 import copy
 
 
-def updatePlayer():
-    variStats = copy.deepcopy(origStats)
-
-
 class bcolors:
     HEADER = '\033[95m'
     OKBLUE = '\033[94m'
     OKCYAN = '\033[96m'
     OKGREEN = '\033[92m'
     OKRED = '\033[31m'
+    OKMAG = '\033[35m'
+    OKYEL = '\033[33m'
+    OKBLACK = '\033[30;1m'
     WARNING = '\033[93m'
     FAIL = '\033[91m'
     ENDC = '\033[0m'
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
-    ENEMY = '\033[31m' + 'Enemy' + '\033[0m'
-    PLAYER = '\033[94m' + 'Player' + '\033[0m'
-    BATTLE = '\u001b[35m' + 'Battle Hud' + ENDC
+    ENEMY = OKRED + 'Enemy' + ENDC
+    PLAYER = OKBLUE + 'Player' + ENDC
+    BATTLE = OKMAG + 'Battle Hud' + ENDC
+    TREE = OKYEL + 'Great Oak' + ENDC
+    FKING = OKRED + 'Fire King' + ENDC
+    WKING = OKCYAN + 'Water King' + ENDC
+    SKING = OKBLACK + 'Stone King' + ENDC
+    WIN = BOLD + 'You Won!!'+ENDC
+    LOSS = BOLD + 'You Lost!!'+ENDC
 
 
 def ent():
@@ -270,10 +275,12 @@ def battle(x):
     if (variStats[0] <= 0):
         print("\n<::" + bcolors.BATTLE + "::>")
         print("You Lost!")
+        updatePlayer()
+        return False
     elif (y[1][0] <= 0):
         print("\n<::" + bcolors.BATTLE + "::>")
-        print("You Won!")
+        print(bcolors.WIN)
         ent()
         updatePlayer()
         screen_clear()
-        return
+        return True

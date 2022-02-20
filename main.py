@@ -13,10 +13,12 @@ import os
 import time
 import pdb
 
+title()
 screen_clear()
-battle(bunny)
-battle(bigbunny)
-battle(bossbunny)
+tutorial()
+# battle(bossbunny)
+# battle(bossbunny)
+# battle(bossbunny)
 
   
   

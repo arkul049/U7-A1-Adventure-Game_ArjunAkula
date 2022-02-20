@@ -19,7 +19,8 @@ one = [[True,False,False,False,False,False,False,False,False,False],["10%"]]
 zero = [[False],["0%"]]
 
 #Ancient Oak Enemies
-dummy= [["Dummy", "Old Oak's offspring. Trees can't fight."],[9999],[0],zero]
+dummy= [["Dummy", "Old Oak's offspring. Trees can't fight."],[24],[0],nine]
+finBoss = [["Dummy", "Old Oak's offspring. Trees can't fight."],[24],[0],ten]
 
 #Bunny Field Enemies
 bunny= [["Bunny","A regular bunny."],[8],[2],six]
