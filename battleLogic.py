@@ -23,7 +23,7 @@ class bcolors:
     UNDERLINE = '\033[4m'
     ENEMY = OKRED + 'Enemy' + ENDC
     PLAYER = OKBLUE + 'Player' + ENDC
-    BATTLE = OKMAG + 'Battle Hud' + ENDC
+    BATTLE = OKMAG + 'Battle HUD' + ENDC
     TREE = OKYEL + 'Great Oak' + ENDC
     FKING = OKRED + 'Fire King' + ENDC
     WKING = OKCYAN + 'Water King' + ENDC

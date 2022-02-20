@@ -67,7 +67,7 @@ def tutorial():
   time.sleep(0.25)
   print(" - Each location's King has a different fragment of the key, defeat them all to assemble it.")
   time.sleep(0.25)
-  print(" - Once you retriece the key, return it to Rainbow Falls.")
+  print(" - Once you retrieve the key, return it to Rainbow Falls.")
   time.sleep(0.25)
   print("Good Luck! First, head to Bunny Fields.")
   ent()
