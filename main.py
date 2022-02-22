@@ -13,9 +13,9 @@ import os
 import time
 import pdb
 
-title()
-tutorial()
-bunField()
-screen_clear()
-print("<Unfinished>")
+# title()
+# tutorial()
+# bunField()
+# screen_clear()
+# print("<Unfinished>")
   

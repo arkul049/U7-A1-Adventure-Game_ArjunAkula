@@ -8,8 +8,6 @@ import copy
 
 
 
-
-
 def ent():
     input("<Continue(enter)>")
 
@@ -246,13 +244,13 @@ def battle(x):
     if (variStats[0] <= 0):
         print("\n<::" + bcolors.BATTLE + "::>")
         time.sleep(0.25)
-        print("You Lost!")
+        print("You Lost! (death not implemented :) )")
         time.sleep(0.25)
         updatePlayer()
         return False
     elif (y[1][0] <= 0):
         print("\n<::" + bcolors.BATTLE + "::>")
-        print(bcolors.WIN)
+        print("You Won!")
         time.sleep(0.25)
         print("Attk +1!")
         time.sleep(0.25)

@@ -23,8 +23,6 @@ class bcolors:
     FKING = OKRED + 'Fire King' + ENDC
     WKING = OKCYAN + 'Water King' + ENDC
     SKING = OKBLACK + 'Stone King' + ENDC
-    WIN = BOLD + 'You Won!!'+ENDC
-    LOSS = BOLD + 'You Lost!!'+ENDC
 
 #100%
 ten = [[True],["100%"]]
