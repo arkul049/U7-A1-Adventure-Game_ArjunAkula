@@ -14,11 +14,8 @@ import time
 import pdb
 
 title()
-screen_clear()
 tutorial()
-# battle(bossbunny)
-# battle(bossbunny)
-# battle(bossbunny)
-
-  
+bunField()
+screen_clear()
+print("<Unfinished>")
   
