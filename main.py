@@ -13,10 +13,7 @@ import os
 import time
 import pdb
 
-screen_clear()
-battle(bunny)
-battle(bigbunny)
-battle(bossbunny)
-
-  
-  
+title()
+tutorial()
+bunField()
+print("<Unfinished>")
