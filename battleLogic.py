@@ -143,13 +143,24 @@ def use(y):
 
 
 def block():
-    """
-  3/4 chance to block 3/4 attack
+  """
+  Returns whether block is successful.\n
+  
+  Returns:\n
+  True or False: Block or Failed Block
   """
     return random.choices([True, True, True, True, False])[0]
 
 
 def encounter(x):
+  """
+  Displays encounter information on specific enemy in parameter.\n
+  Args:\n
+  x: list(original enemy list)\n
+
+  Returns:\n
+  x: list(original enemy list)\n
+  """
     screen_clear()
     print("<::You encountered a", str(x[0][0]) + "::>")
     time.sleep(0.75)
@@ -172,30 +183,45 @@ def encounter(x):
 
 
 def disH(y, x):
-    screen_clear()
-    print("<::" + bcolors.OKRED + str(y[0][0]) + bcolors.ENDC + "::>")
+  """
+  Displays health and names.\n
+  Args:\n
+  x: list(original enemy list)\n
+  y: list (cloned enemy list)\n
+
+  """
+  screen_clear()
+  print("<::" + bcolors.OKRED + str(y[0][0]) + bcolors.ENDC + "::>")
+  if(y[1][0] <= 0):
+    temp = 0
+  else:
     temp = round(10 * (y[1][0] / x[1][0]))
-    temp1 = round(10 * (variStats[0] / origStats[0]))
-    print("HP[" + bcolors.OKGREEN + "=" * temp + bcolors.ENDC + " " *
+  temp1 = round(10 * (variStats[0] / origStats[0]))
+  print("HP[" + bcolors.OKGREEN + "=" * temp + bcolors.ENDC + " " *
           (10 - temp) + "]")
-    print("\n")
-    print("<::" + bcolors.PLAYER + "::>")
-    print("HP[" + bcolors.OKGREEN + "=" * temp1 + bcolors.ENDC + " " *
+  print("\n")
+  print("<::" + bcolors.PLAYER + "::>")
+  print("HP[" + bcolors.OKGREEN + "=" * temp1 + bcolors.ENDC + " " *
           (10 - temp1) + "]")
 
 
 def enemyAttack(x, y):
-    #20% chance of deciding to wait
-    if (x != 0):
-        if (random.choices(
-            [True, True, True, True, True, True, True, False, False,
-             False])[0]):
-            time.sleep(0.25)
-            print(bcolors.ENEMY + " Attacked . . .")
-            time.sleep(0.25)
-            print(bcolors.ENEMY + " was Blocked!")
-            return
-    elif (random.choices([True, True, True, True, False])[0]):
+  """
+  Removes player health if enemy attacks on current turn.\n
+  Args:\n
+  x: list(original enemy list)\n
+  y: list (cloned enemy list)\n
+
+  """
+  #20% chance of deciding to wait
+  if (x != 0):
+    if (random.choices([True, True, True, True, True, True, True, False, False,False])[0]):
+      time.sleep(0.25)
+      print(bcolors.ENEMY + " Attacked . . .")
+      time.sleep(0.25)
+      print(bcolors.ENEMY + " was Blocked!")
+      return
+  elif (random.choices([True, True, True, True, False])[0]):
         time.sleep(0.25)
         print(bcolors.ENEMY + " Attacked . . .")
         if (land(y)):
@@ -207,14 +233,14 @@ def enemyAttack(x, y):
             time.sleep(0.25)
             print(bcolors.ENEMY + " Missed!")
             return
-    else:
-        time.sleep(0.25)
-        print(bcolors.ENEMY + " is Waiting . . . (It didn't attack)")
-    return
+  else:
+    time.sleep(0.25)
+    print(bcolors.ENEMY + " is Waiting . . . (It didn't attack)")
+  return
 
 
 def battle(x):
-    """
+  """
   Updates variPlayer with current stats depending on inventory. Clones enemy list for variable changes. Handles calling functions until player varihealth 0 or cloned enemy health = 0.\n
   Args:\n
   x: list(original enemy list)\n
