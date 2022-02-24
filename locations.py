@@ -65,9 +65,14 @@ def tutorial():
   # print(" - If you lose, you will return to Bunny Fields(All upgrades and areas previously unlocked remain unlocked).")
   print("Game is incomplete, so locations other than bunny fields arent complete, but playable. For examples of functions with paramenters, check out the battleLogic file!")
   time.sleep(0.25)
-  print(" - Each location's King has a different fragment of the key, defeat them all to assemble it.")
+  print("Traveling to any location will let you battle that location's unique enemies, but at the end, you will return to Bunny Fields. Bunny Fields, however, is complete.")
   time.sleep(0.25)
-  print(" - Once you retrieve the key, return it to Rainbow Falls.")
+  print("Since in its current state, this game is just a battle sim, (and a lacking one at that), go into player.py and edit origStats[1] to increase attack (80 is most you'll need) for testing other functionality")
+  time.sleep(0.25)
+  print("There are a number of bosses in the game, but only the boss for Bunny Fields can be accessed at the end of the Raid. ")
+  # print(" - Each location's King has a different fragment of the key, defeat them all to assemble it.")
+  # time.sleep(0.25)
+  # print(" - Once you retrieve the key, return it to Rainbow Falls.")
   time.sleep(0.25)
   print("Good Luck! First, head to Bunny Fields.")
   ent()
@@ -80,22 +85,26 @@ def oldOak():
   time.sleep(0.25)
   print("You've already arrived! It wasn't that far.")
   ent()
-  return OldOakLoc()
+  print("Unfortunatley, this area's under construction.")
+  time.sleep(0.25)
+  print("<Returning to Bunny Fields>")
+  ent()
+  return 1
   
-def oldOakLoc():
-  screen_clear()
-  print("<Old Oak>\n")
-  print("<Bunny Fields(b)>")
-  print("<Rainbow Falls(r)>")
-  t = input("<::"+bcolors.PLAYER+"::>")
-  if(t == 'b'):
-    return 2
-  elif(t == 'r'):
-    print("Not Implemented . . . ")
-    ent()
-    OldOakLoc()
-  else:
-    OldOakLoc()
+# def oldOakLoc():
+#   screen_clear()
+#   print("<Old Oak>\n")
+#   print("<Bunny Fields(b)>")
+#   print("<Rainbow Falls(r)>")
+#   t = input("<::"+bcolors.PLAYER+"::>")
+#   if(t == 'b'):
+#     return 2
+#   elif(t == 'r'):
+#     print("Not Implemented . . . ")
+#     ent()
+#     OldOakLoc()
+#   else:
+#     OldOakLoc()
   
 def bunLoc(x):
     screen_clear()
@@ -130,22 +139,22 @@ def bunLoc(x):
       print("<Blue Lake(b)>")
       print("<Crystal Caves(c)>")
       print("<Howling Cliffs(h)>")
+      print("<Quit(q)>")
       t = input("<::"+bcolors.PLAYER+"::>")
-      if(t in ['o','b','c','h']):
-        if(t == 'o'):
-          return 0
-        elif(t == 'b'):
-          return 2
-        elif(t == 'c'):
-          return 3
-        elif(t == 'h'):
-          return 5
+      if(t == 'o'):
+        return 0
+      elif(t == 'b'):
+        return 2
+      elif(t == 'c'):
+        return 3
+      elif(t == 'q'):
+        return 6
       else:
         bunLoc(1)
         
 def bunField():
   randEnc = ["You stop and smell the roses.","The sun is shining.", "There isn't a cloud in the sky.","Lush green fields stretch into the distance, you can't see them end."]
-  for i in range(3):
+  for i in range(2):
     screen_clear()
     print("<::Road to Bunny Fields::>")
     time.sleep(0.25)
@@ -153,7 +162,7 @@ def bunField():
     time.sleep(0.25)
     ent()
     time.sleep(0.25)
-    if(random.choice(six)[0]):
+    if(random.randint(0, 1) == 1):
       battle(bunny)
     else:
       battle(bigbunny)
@@ -163,13 +172,12 @@ def bunField():
 
   
 def blueLake():
-  randEnc = []
   print("<::Road to Blue Lake::>")
   time.sleep(0.25)
   print(". . .")
   time.sleep(0.25)
   randEnc = ["You see a lake in the distance.","There are shadows underneath the lake's surface.", "Its raining.","Is that a fish . . . with legs!?"]
-  for i in range(3):
+  for i in range(2):
     screen_clear()
     print("<::Road to Blue Lake::>")
     time.sleep(0.25)
@@ -177,24 +185,37 @@ def blueLake():
     time.sleep(0.25)
     ent()
     time.sleep(0.25)
-    if(random.choice(six)[0]):
+    if(random.randint(0, 1) == 1):
       battle(minnow)
     else:
       battle(shark)
-  print("You've arrived.")
-  ent()
-  print("unfortunatley, this area is underconstruction, please come back another time . . .")
-  ent()
-  return 1
+  print("You've arrived to Blue Lake.")
+  time.sleep(0.25)
+  print("<Bunny Fields(any input)>")
+  time.sleep(0.25)
+  print("<Crystal Caves(c)>")
+  time.sleep(0.25)
+  print("<Howling Cliffs(h)>")
+  time.sleep(0.25)
+  print("<Quit(q)>")
+  time.sleep(0.25)
+  t = input("<::"+bcolors.PLAYER+"::>")
+  if(t == 'c'):
+    return 3
+  elif(t == 'h'):
+    return 4
+  elif(t == 'q'):
+    return 6
+  else:
+    bunLoc(1)  
   
 def crysCav():
-  randEnc = []
   print("<::Road to Crystal Caverns::>")
   time.sleep(0.25)
   print(". . .")
   time.sleep(0.25)
   randEnc = ["The ground is shaking.","The rocks are alive.", "This mineshaft seems abandoned . . .","You see small pools of lava."]
-  for i in range(3):
+  for i in range(2):
     screen_clear()
     print("<::Road to Crystal Caverns::>")
     time.sleep(0.25)
@@ -202,24 +223,37 @@ def crysCav():
     time.sleep(0.25)
     ent()
     time.sleep(0.25)
-    if(random.choice(six)[0]):
+    if(random.randint(0, 1) == 1):
       battle(fireLizard)
     else:
       battle(golem)
-  print("You've arrived.")
-  ent()
-  print("unfortunatley, this area is underconstruction, please come back another time . . .")
-  ent()
-  return 1
+  print("You've arrived to Crystal Caverns.")
+  time.sleep(0.25)
+  print("<Bunny Fields(any input)>")
+  time.sleep(0.25)
+  print("<Blue Lake(b)>")
+  time.sleep(0.25)
+  print("<Howling Cliffs(h)>")
+  time.sleep(0.25)
+  print("<Quit(q)>")
+  time.sleep(0.25)
+  t = input("<::"+bcolors.PLAYER+"::>")
+  if(t == 'b'):
+    return 2
+  elif(t == 'h'):
+    return 4
+  elif(t == 'q'):
+    return 6
+  else:
+    bunLoc(1)
       
 def howCliff():
-  randEnc = []
   print("<::Road to Howling Cliffs::>")
   time.sleep(0.25)
   print(". . .")
   time.sleep(0.25)
   randEnc = ["The wind is blowing.","You hear bird calls overhead.", "There are flickering shapes in the sky.","The ground around you is dissappearing."]
-  for i in range(3):
+  for i in range(2):
     screen_clear()
     print("<::Road to Howling Cliffs::>")
     time.sleep(0.25)
@@ -227,24 +261,37 @@ def howCliff():
     time.sleep(0.25)
     ent()
     time.sleep(0.25)
-    if(random.choice(six)[0]):
+    if(random.randint(0, 1) == 1):
       battle(butterfly)
     else:
       battle(bird)
-  print("You've arrived.")
-  ent()
-  print("unfortunatley, this area is underconstruction, please come back another time . . .")
-  ent()
-  return 1
+  print("You've arrived to Howling Cliffs.")
+  time.sleep(0.25)
+  print("<Crystal Caverns(c)>")
+  time.sleep(0.25)
+  print("<Blue Lake(b)>")
+  time.sleep(0.25)
+  print("<Red Mountain(Any Input)>")
+  time.sleep(0.25)
+  print("<Quit(q)>")
+  time.sleep(0.25)
+  t = input("<::"+bcolors.PLAYER+"::>")
+  if(t == 'b'):
+    return 2
+  elif(t == 'c'):
+    return 3
+  elif(t == 'q'):
+    return 6
+  else:
+    return 5
       
 def redMoun():
-  randEnc = []
   print("<::Road to Red Mountain::>")
   time.sleep(0.25)
   print(". . .")
   time.sleep(0.25)
   randEnc = ["Molten rock pours down the slopes.","The air is toxic", "Sparks and fire illuminate the obsidian.","You hear a loud roar"]
-  for i in range(3):
+  for i in range(2):
     screen_clear()
     print("<::Road to Red Mountains::>")
     time.sleep(0.25)
@@ -252,24 +299,32 @@ def redMoun():
     time.sleep(0.25)
     ent()
     time.sleep(0.25)
-    if(random.choice(six)[0]):
+    if(random.randint(0, 1) == 1):
       battle(fireLizard)
     else:
       battle(dragon)
-  print("You've arrived.")
-  ent()
-  print("unfortunatley, this area is underconstruction, please come back another time . . .")
-  ent()
-  return 1
+  print("You've arrived to Red Mountain.")
+  time.sleep(0.25)
+  print("<Howling Peak(Any Input)>")
+  time.sleep(0.25)
+  print("<Quit(q)>")
+  time.sleep(0.25)
+  t = input("<::"+bcolors.PLAYER+"::>")
+  if(t == 'q'):
+    return 6
+  else:
+    return 4
       
 def rainFall():
   print("<::Road to Rainbow Falls::>")
   time.sleep(0.25)
   print(". . .")
   time.sleep(0.25)
-  print("You've already arrived! It wasn't that far.")
+  print("You've already arrived to Rainbow Falls! It wasn't that far.")
   ent()
   print("unfortunatley, this area is underconstruction, please come back another time . . .")
+  time.sleep(0.25)
+  print("<Returning to Bunny Fields>")
   ent()
   return 1
 
@@ -277,7 +332,7 @@ def Loc(x):
   if x == 0:
     return oldOak()
   elif x == 1:
-    return bunField()
+    return bunLoc(1)
   elif x == 2:
     return blueLake()
   elif x == 3:
@@ -285,9 +340,16 @@ def Loc(x):
   elif x == 4:
     return howCliff()
   elif x == 5:
-    return howCliff()
+    return redMoun()
+  elif x == 6:
+    return 6
   else:
     return bunLoc(1)
     
 def locMan(x):
-  print("use Loc func")
+  while(True):
+    x = Loc(x)
+    if x == 6:
+      break
+  print("Thanks for playing. The game is obviously still in development, but I will hopefully complete it for my final project . . . (To be continued?)")
+  return

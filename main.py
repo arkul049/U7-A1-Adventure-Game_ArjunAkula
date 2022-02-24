@@ -15,5 +15,5 @@ import pdb
 
 title()
 tutorial()
-bunField()
-print("<Unfinished>")
+locMan(bunField())
+
