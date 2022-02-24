@@ -2,6 +2,7 @@ from battleLogic import *
 from enemyIndex import *
 import time
 
+v=0
 #old oak is 0, bun fields is 1, 2 is blue lake, 3 is caves, 4 is cliffs, and five is red mountain
 
 def title():
@@ -107,8 +108,9 @@ def oldOak():
 #     OldOakLoc()
   
 def bunLoc(x):
+    global v
     screen_clear()
-    if x == 0:
+    if v == 0:
       print("<Bunny Fields>")
       print("<Raid(r)>")
       print("<Old Oak(o)>")
@@ -128,11 +130,12 @@ def bunLoc(x):
         battle(bossbunny)
         print("Thank you for defeating the bunnies! You can now access other locations.")
         ent()
-        bunLoc(1)
+        v=1
+        bunLoc(v)
       elif t == 'o':
         return 0
       else:
-        bunLoc(0)
+        bunLoc(v)
     else:
       print("<Bunny Fields>\n")
       print("<Old Oak(o)>")
@@ -150,7 +153,7 @@ def bunLoc(x):
       elif(t == 'q'):
         return 6
       else:
-        bunLoc(1)
+        bunLoc(v)
         
 def bunField():
   randEnc = ["You stop and smell the roses.","The sun is shining.", "There isn't a cloud in the sky.","Lush green fields stretch into the distance, you can't see them end."]
@@ -168,7 +171,7 @@ def bunField():
       battle(bigbunny)
   print("You've arrived.")
   ent()
-  return bunLoc(0)
+  return bunLoc(v)
 
   
 def blueLake():
@@ -207,7 +210,7 @@ def blueLake():
   elif(t == 'q'):
     return 6
   else:
-    bunLoc(1)  
+    bunLoc(v)  
   
 def crysCav():
   print("<::Road to Crystal Caverns::>")
@@ -245,7 +248,7 @@ def crysCav():
   elif(t == 'q'):
     return 6
   else:
-    bunLoc(1)
+    bunLoc(v)
       
 def howCliff():
   print("<::Road to Howling Cliffs::>")
@@ -332,7 +335,7 @@ def Loc(x):
   if x == 0:
     return oldOak()
   elif x == 1:
-    return bunLoc(1)
+    return bunLoc(v)
   elif x == 2:
     return blueLake()
   elif x == 3:
@@ -344,7 +347,7 @@ def Loc(x):
   elif x == 6:
     return 6
   else:
-    return bunLoc(1)
+    return bunLoc(v)
     
 def locMan(x):
   while(True):

@@ -149,7 +149,7 @@ def block():
   Returns:\n
   True or False: Block or Failed Block
   """
-    return random.choices([True, True, True, True, False])[0]
+  return random.choices([True, True, True, True, False])[0]
 
 
 def encounter(x):
@@ -161,25 +161,25 @@ def encounter(x):
   Returns:\n
   x: list(original enemy list)\n
   """
-    screen_clear()
-    print("<::You encountered a", str(x[0][0]) + "::>")
-    time.sleep(0.75)
-    print(x[0][1])
-    time.sleep(0.75)
-    print("<Stats:>")
-    time.sleep(0.25)
-    print("HP[" + str(x[1][0]) + "]")
-    time.sleep(0.25)
-    print("ATTK[" + str(x[2][0]) + "]")
-    time.sleep(0.25)
-    print("ACC[" + str(x[3][1][0]) + "]")
-    time.sleep(0.25)
-    print("...\n")
-    time.sleep(0.75)
-    print("Good Luck!!")
-    time.sleep(0.25)
-    ent()
-    return x
+  screen_clear()
+  print("<::You encountered a", str(x[0][0]) + "::>")
+  time.sleep(0.75)
+  print(x[0][1])
+  time.sleep(0.75)
+  print("<Stats:>")
+  time.sleep(0.25)
+  print("HP[" + str(x[1][0]) + "]")
+  time.sleep(0.25)
+  print("ATTK[" + str(x[2][0]) + "]")
+  time.sleep(0.25)
+  print("ACC[" + str(x[3][1][0]) + "]")
+  time.sleep(0.25)
+  print("...\n")
+  time.sleep(0.75)
+  print("Good Luck!!")
+  time.sleep(0.25)
+  ent()
+  return x
 
 
 def disH(y, x):
@@ -240,7 +240,7 @@ def enemyAttack(x, y):
 
 
 def battle(x):
-  """
+    """
   Updates variPlayer with current stats depending on inventory. Clones enemy list for variable changes. Handles calling functions until player varihealth 0 or cloned enemy health = 0.\n
   Args:\n
   x: list(original enemy list)\n
@@ -248,7 +248,7 @@ def battle(x):
 
   Returns:\n
   True or False: Win or Loss
-  """
+    """
     screen_clear()
     #creates instance of enemy to compare to original enemy list
     y = copy.deepcopy(encounter(x))
