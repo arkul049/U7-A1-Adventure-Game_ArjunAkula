@@ -9,10 +9,16 @@ import copy
 
 
 def ent():
+    """
+  Universal transition func. Call to ask user to click enter to continue.
+    """
     input("<Continue(enter)>")
 
 
 def namestr(obj, namespace):
+    """
+  Finds variable in projects files, and returns variable name
+    """
     return [name for name in namespace if namespace[name] is obj]
 
 
@@ -106,6 +112,9 @@ def atkHub(y, x):
 
 
 def stats(y):
+  """
+  Displays enemy stats.
+    """
     screen_clear()
     print("<" + bcolors.ENEMY + " Stats:>")
     time.sleep(0.25)
@@ -120,6 +129,9 @@ def stats(y):
 
 
 def stats1():
+  """
+    Displays player's stats.
+    """
     screen_clear()
     print("<Stats:>")
     time.sleep(0.25)
@@ -134,6 +146,9 @@ def stats1():
 
 
 def use(y):
+  """
+    Call function use to let player attack.
+    """
     #attacks, base does 5% player hp dmg to enemy, goes up with tools
   y[1][0] -= int(variStats[1])
   time.sleep(0.25)

@@ -13,6 +13,9 @@ variStats = copy.deepcopy(origStats)
 locat = [0,0,0,0,0]
 
 def updatePlayer():
+  """
+  Updates instance of origStats in variStats.
+  """
   for i in range(3):
     variStats[i] = origStats[i]
 
