@@ -6,10 +6,16 @@ v=0
 #old oak is 0, bun fields is 1, 2 is blue lake, 3 is caves, 4 is cliffs, and five is red mountain
 
 def title():
+  """
+  Prints game title.
+  """
   print("Rainbow Falls")
   time.sleep(1)
   ent()
 def tutorial():
+  """
+  Prints introduction to game at time intervals.
+  """
   screen_clear()
   time.sleep(0.5)
   print("You wake to find yourself lying in front of a giant tree.")
@@ -80,6 +86,12 @@ def tutorial():
   return
   
 def oldOak():
+  """
+  Prints relevent location Information.\n
+  Returns:\n
+  Assorted integers relative to chosen next location.
+  (currently only 1)
+  """
   print("<::Road to "+bcolors.TREE+"::>")
   time.sleep(0.25)
   print(". . .")
@@ -108,6 +120,13 @@ def oldOak():
 #     OldOakLoc()
   
 def bunLoc(x):
+    """
+  Prints relevent location Information.\n
+  Arguments:\n
+  x: whether or not raid has been completed at least once
+  Returns:\n
+  Assorted integers relative to chosen next location.
+    """
     global v
     screen_clear()
     if v == 0:
@@ -156,6 +175,11 @@ def bunLoc(x):
         bunLoc(v)
         
 def bunField():
+  """
+  Prints relevent location Information.\n
+  Returns:\n
+  Assorted integers relative to chosen next location.
+    """
   randEnc = ["You stop and smell the roses.","The sun is shining.", "There isn't a cloud in the sky.","Lush green fields stretch into the distance, you can't see them end."]
   for i in range(2):
     screen_clear()
@@ -175,6 +199,11 @@ def bunField():
 
   
 def blueLake():
+  """
+  Prints relevent location Information.\n
+  Returns:\n
+  Assorted integers relative to chosen next location.
+    """
   print("<::Road to Blue Lake::>")
   time.sleep(0.25)
   print(". . .")
@@ -213,6 +242,11 @@ def blueLake():
     bunLoc(v)  
   
 def crysCav():
+  """
+  Prints relevent location Information.\n
+  Returns:\n
+  Assorted integers relative to chosen next location.
+    """
   print("<::Road to Crystal Caverns::>")
   time.sleep(0.25)
   print(". . .")
@@ -251,6 +285,11 @@ def crysCav():
     bunLoc(v)
       
 def howCliff():
+  """
+  Prints relevent location Information.\n
+  Returns:\n
+  Assorted integers relative to chosen next location.
+    """
   print("<::Road to Howling Cliffs::>")
   time.sleep(0.25)
   print(". . .")
@@ -289,6 +328,11 @@ def howCliff():
     return 5
       
 def redMoun():
+  """
+  Prints relevent location Information.\n
+  Returns:\n
+  Assorted integers relative to chosen next location.
+    """
   print("<::Road to Red Mountain::>")
   time.sleep(0.25)
   print(". . .")
@@ -318,20 +362,27 @@ def redMoun():
   else:
     return 4
       
-def rainFall():
-  print("<::Road to Rainbow Falls::>")
-  time.sleep(0.25)
-  print(". . .")
-  time.sleep(0.25)
-  print("You've already arrived to Rainbow Falls! It wasn't that far.")
-  ent()
-  print("unfortunatley, this area is underconstruction, please come back another time . . .")
-  time.sleep(0.25)
-  print("<Returning to Bunny Fields>")
-  ent()
-  return 1
+# def rainFall():
+#   print("<::Road to Rainbow Falls::>")
+#   time.sleep(0.25)
+#   print(". . .")
+#   time.sleep(0.25)
+#   print("You've already arrived to Rainbow Falls! It wasn't that far.")
+#   ent()
+#   print("unfortunatley, this area is underconstruction, please come back another time . . .")
+#   time.sleep(0.25)
+#   print("<Returning to Bunny Fields>")
+#   ent()
+#   return 1
 
 def Loc(x):
+  """
+  Picks location func call depending on parameter "x"\n
+  Arguments:\n
+  x: number chosing location to travel (returned from location funcs)
+  Returns:\n
+  Assorted integers relative to chosen next location.
+    """
   if x == 0:
     return oldOak()
   elif x == 1:
@@ -350,6 +401,11 @@ def Loc(x):
     return bunLoc(v)
     
 def locMan(x):
+  """
+  Calls Loc func to update "x"\n
+  Arguments:\n
+  x: number chosing location to travel (returned from location funcs)
+    """
   while(True):
     x = Loc(x)
     if x == 6:
