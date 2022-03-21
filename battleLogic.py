@@ -112,7 +112,7 @@ def atkHub(y, x):
 
 
 def stats(y):
-  """
+    """
   Displays enemy stats.
     """
     screen_clear()
@@ -129,7 +129,7 @@ def stats(y):
 
 
 def stats1():
-  """
+    """
     Displays player's stats.
     """
     screen_clear()
@@ -147,9 +147,9 @@ def stats1():
 
 def use(y):
   """
-    Call function use to let player attack.
-    """
-    #attacks, base does 5% player hp dmg to enemy, goes up with tools
+  Call function use to let player attack.
+  """
+  #attacks, base does 5% player hp dmg to enemy, goes up with tools
   y[1][0] -= int(variStats[1])
   time.sleep(0.25)
   print("Attack Landed!")
